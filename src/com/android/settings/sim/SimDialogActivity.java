@@ -20,6 +20,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.ComponentName;
 import android.content.DialogInterface;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
@@ -440,9 +441,12 @@ public class SimDialogActivity extends Activity {
 
         private String getCurrentSmsAppName() {
             try {
+                ComponentName mmsApp = SmsApplication.getDefaultMmsApplication(getApplicationContext(), false);
+                if (mmsApp == null) {
+                    return null;
+                }
                 final ApplicationInfo applicationInfo = getPackageManager().getApplicationInfo(
-                        SmsApplication.getDefaultMmsApplication(getApplicationContext(), false)
-                                .getPackageName(), 0);
+                        mmsApp.getPackageName(), 0);
                 return getPackageManager().getApplicationLabel(applicationInfo).toString();
             } catch (PackageManager.NameNotFoundException e) {
                 e.printStackTrace();
