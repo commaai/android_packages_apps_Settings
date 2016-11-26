@@ -733,6 +733,16 @@ public class SettingsActivity extends Activity
         mHomeActivitiesCount = getHomeActivitiesCount();
     }
 
+    // comma hax
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            finish();
+            return true;
+        }
+        return false;
+    }
+
     private int getHomeActivitiesCount() {
         final ArrayList<ResolveInfo> homeApps = new ArrayList<ResolveInfo>();
         getPackageManager().getHomeActivities(homeApps);

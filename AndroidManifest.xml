@@ -123,12 +123,14 @@
             </intent-filter>
         </activity-alias>
 
+        <!--
         <receiver android:name="ManagedProfileSetup">
             <intent-filter>
                 <action android:name="android.intent.action.USER_INITIALIZE"/>
                 <action android:name="android.intent.action.PRE_BOOT_COMPLETED"/>
             </intent-filter>
         </receiver>
+        -->
 
         <activity android:name=".SubSettings"
                 android:taskAffinity="com.android.settings"
@@ -657,12 +659,14 @@
                 android:value="true" />
         </activity>
 
+        <!--
         <receiver android:name=".inputmethod.InputMethodDialogReceiver"
                 android:enabled="true">
             <intent-filter>
                 <action android:name="android.settings.SHOW_INPUT_METHOD_PICKER" />
             </intent-filter>
         </receiver>
+        -->
 
         <activity android:name="Settings$UserDictionarySettingsActivity"
                 android:label="@string/user_dict_settings_title"
@@ -1820,6 +1824,7 @@
             </intent-filter>
         </receiver>
 
+        <!--
         <receiver
             android:name=".bluetooth.DockEventReceiver">
             <intent-filter>
@@ -1844,6 +1849,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        -->
 
         <activity android:name=".wifi.WifiScanModeActivity"
                   android:excludeFromRecents="true"
@@ -1868,6 +1874,7 @@
                   android:theme="@style/Theme.SettingsAlertDialog">
         </activity>
 
+        <!--
         <receiver android:name=".bluetooth.BluetoothPairingRequest">
             <intent-filter>
                 <action android:name="android.bluetooth.device.action.PAIRING_REQUEST" />
@@ -1895,6 +1902,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+    -->
 
         <activity android:name="ActivityPicker"
                 android:label="@string/activity_picker_label"
@@ -1944,11 +1952,13 @@
         <!-- Development settings -->
 
         <!-- DeviceInfo adds the user's requested build to stats upload.  -->
+        <!--
         <receiver android:name=".DeviceInfo$StatsReportReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.STATISTICS_REPORT" />
             </intent-filter>
         </receiver>
+    -->
 
         <activity android:name="Display" android:label="@string/display_label"
                 android:configChanges="fontScale"
@@ -2163,6 +2173,7 @@
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:theme="@style/Theme.SubSettingsDialogWhenLarge"/>
 
+        <!--
         <activity android:name=".CryptKeeper"
                   androidprv:primaryUserOnly="true"
                   android:immersive="true"
@@ -2191,6 +2202,7 @@
             android:launchMode="singleTop"
             android:theme="@style/CryptKeeperBlankTheme"
         />
+        -->
 
         <!-- CyanogenMod activities Start -->
         <activity android:name="Settings$ProfilesSettingsActivity"
@@ -2692,6 +2704,7 @@
         </receiver>
 
         <!-- Anonymous Statistics -->
+        <!--
         <receiver android:name=".cmstats.ReportingServiceManager"
             android:enabled="true"
             android:exported="false"
@@ -2710,6 +2723,7 @@
 
         <service android:name=".cmstats.StatsUploadJobService"
                  android:permission="android.permission.BIND_JOB_SERVICE" />
+        -->
 
         <!-- Watch for ContactsContract.Profile changes and update the user's photo.  -->
         <receiver android:name=".users.ProfileUpdateReceiver">
@@ -2718,11 +2732,13 @@
             </intent-filter>
         </receiver>
 
+        <!--
         <receiver android:name=".sim.SimSelectNotification">
             <intent-filter>
                 <action android:name="android.intent.action.SIM_STATE_CHANGED"></action>
             </intent-filter>
         </receiver>
+        -->
 
         <provider
             android:name="android.support.v4.content.FileProvider"
@@ -2751,6 +2767,7 @@
                 android:resource="@id/sim_settings" />
         </activity>
 
+        <!--
         <activity android:name=".sim.SimPreferenceDialog"
             android:theme="@style/Theme.SettingsDialog"
             android:excludeFromRecents="true">
@@ -2764,6 +2781,7 @@
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>
+        -->
 
         <activity android:name="Settings$WifiCallingSettingsActivity"
                   android:label="@string/wifi_calling_settings_title"
@@ -2874,11 +2892,13 @@
                 android:value="com.android.settings.applications.WriteSettingsDetails" />
         </activity>
 
+        <!--
         <receiver android:name=".profiles.SetupDefaultProfileReceiver">
             <intent-filter>
                 <action android:name="com.cyanogenmod.setupwizard.SETUP_FINISHED" />
             </intent-filter>
         </receiver>
+        -->
 
         <receiver android:name=".cyanogenmod.BootReceiver" android:enabled="true">
             <intent-filter android:priority="2147483647">
