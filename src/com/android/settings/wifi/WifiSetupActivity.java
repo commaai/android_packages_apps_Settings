@@ -220,9 +220,10 @@ public class WifiSetupActivity extends WifiPickerActivity
         } else {
             // Warn of possible data charges if there is a network connection, or lack of updates
             // if there is none.
-            final int message = isNetworkConnected() ? R.string.wifi_skipped_message :
-                    R.string.wifi_and_mobile_skipped_message;
-            WifiSkipDialog.newInstance(message).show(getFragmentManager(), "dialog");
+            // final int message = isNetworkConnected() ? R.string.wifi_skipped_message :
+            //         R.string.wifi_and_mobile_skipped_message;
+            // WifiSkipDialog.newInstance(message).show(getFragmentManager(), "dialog");
+            finish(RESULT_SKIP);
         }
     }
 
