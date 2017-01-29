@@ -210,7 +210,7 @@ public class WifiSetupActivity extends WifiPickerActivity
 
     @Override
     public void onNavigateBack() {
-        onBackPressed();
+        //onBackPressed();
     }
 
     @Override
