@@ -1874,7 +1874,6 @@
                   android:theme="@style/Theme.SettingsAlertDialog">
         </activity>
 
-        <!--
         <receiver android:name=".bluetooth.BluetoothPairingRequest">
             <intent-filter>
                 <action android:name="android.bluetooth.device.action.PAIRING_REQUEST" />
@@ -1902,7 +1901,6 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-    -->
 
         <activity android:name="ActivityPicker"
                 android:label="@string/activity_picker_label"
