@@ -26,6 +26,7 @@ import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Handler;
 import android.os.Message;
+import android.os.SystemProperties;
 import android.provider.Settings;
 import android.widget.CompoundButton;
 import android.widget.Switch;
@@ -129,28 +130,36 @@ public class WifiEnabler extends GenericSwitchToggle  {
     }
 
     private void handleWifiStateChanged(int state) {
+        boolean enableSwitch;
+
         switch (state) {
             case WifiManager.WIFI_STATE_ENABLING:
-                setEnabled(false);
+                enableSwitch = false;
                 break;
             case WifiManager.WIFI_STATE_ENABLED:
                 setChecked(true);
-                setEnabled(true);
+                enableSwitch = true;
                 updateSearchIndex(true);
                 break;
             case WifiManager.WIFI_STATE_DISABLING:
-                setEnabled(false);
+                enableSwitch = false;
                 break;
             case WifiManager.WIFI_STATE_DISABLED:
                 setChecked(false);
-                setEnabled(true);
+                enableSwitch = true;
                 updateSearchIndex(false);
                 break;
             default:
                 setChecked(false);
-                setEnabled(false);
+                enableSwitch = false;
                 updateSearchIndex(false);
         }
+
+        if (SystemProperties.get("sys.leon.block.wifi", "0").equals("1")) {
+            enableSwitch = false;
+        }
+
+        setEnabled(enableSwitch);
     }
 
     private void updateSearchIndex(boolean isWiFiOn) {
